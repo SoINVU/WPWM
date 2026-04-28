@@ -1,0 +1,39 @@
+# 系统配置
+system:
+  workspace_dir: "/mnt/workspace"
+  data_dir: "/mnt/workspace/data"
+  model_dir: "/mnt/workspace/RAGtest/models"
+  log_dir: "/mnt/workspace/logs"
+
+# 模型配置
+models:
+  embedding:
+    name: "Qwen3-Embedding-0.6B"
+    path: "/mnt/workspace/models/Qwen/Qwen3-Embedding-0.6B"
+    max_length: 8192
+    device: "cuda:0"
+  
+  llm:
+    name: "Qwen3-8B"
+    path: "/mnt/workspace/models/Qwen/Qwen3-8B"
+    max_length: 8192
+    temperature: 0.1
+    device: "cuda:0"
+
+# 数据配置
+data:
+  csv_path: "data/test.csv"
+  chunk_size: 500
+  chunk_overlap: 50
+
+# 向量数据库配置
+vector_db:
+  type: "faiss"
+  index_path: "/mnt/workspace/data/faiss_index"
+  dimension: 1536
+
+# RAG配置
+rag:
+  top_k: 5
+  rerank_top_k: 3
+  similarity_threshold: 0.6
